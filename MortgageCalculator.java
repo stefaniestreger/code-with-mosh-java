@@ -9,28 +9,28 @@ public class Main {
         final byte MONTHS_IN_YEAR = 12;
         final byte PERCENT = 100;
 
-	    Scanner scanner = new Scanner(System.in);
+	Scanner scanner = new Scanner(System.in);
 
-	    System.out.print("Principal: "); // ask the user to enter the principal amount
-        int principal = scanner.nextInt();//store as variable principal
+	System.out.print("Principal: ");
+        int principal = scanner.nextInt();
 
-        System.out.print("Annual Interest Rate: "); //ask the user to enter their interest rate as float or double
+        System.out.print("Annual Interest Rate: ");
         float annualInterest = scanner.nextFloat();
-        float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR; //divide by 12 to get float value //store as variable monthlyInterest
+        float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
 
-        System.out.print("Period (Years): ");//ask the user to enter the length of the loan in years
+        System.out.print("Period (Years): ");
         byte years = scanner.nextByte();
-        int numberOfPayments = years * MONTHS_IN_YEAR; //multiply by 12 for number of months //store as variable paymentCount
+        int numberOfPayments = years * MONTHS_IN_YEAR;
 
-        double mortgage = principal //calculate the mortgage payment
+        double mortgage = principal
             * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments))
             / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
-            //store as variable mortgagePayment
 
-        System.out.println("Monthly Interest Rate: " + monthlyInterest);//output "Monthly interest rate: " as percentage
-        System.out.println("Number of payments in the loan: " + numberOfPayments);//output "Number of payments in the loan: " as integer
+        System.out.println("Monthly Interest Rate: " + monthlyInterest);
+        System.out.println("Number of payments in the loan: " + numberOfPayments);
+	
         String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
-        System.out.println("Mortgage: " + mortgageFormatted);//output "Mortgage: " as currency
+        System.out.println("Mortgage: " + mortgageFormatted);
     }
 
 }
